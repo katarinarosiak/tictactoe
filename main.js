@@ -16,11 +16,16 @@ function removeElement(toRemove, fromWhere) {
 	let tempArr = arrAfterRemoved.splice(arrAfterRemoved.indexOf(toRemove), 1);
 	return arrAfterRemoved;
 }
-//Function that will take an elemenet and print it on the chosen element of a page if empty
-function buttonClicked(what, where){
+//Function that checks if the value of an object is empty
+function checkIfEmpty(object){
+	if(object.value === " "){
+		return true
+	}else{
+		return false
+		}
+	};
 
-}
-
+//--//--//--//--//--//--//--//--//--//--//--//--///--//--//--//--//--//--//--//--//--//--//--//--/
 //create User objects
 class User {
 	constructor(name, sign, score, yourTurn) {
@@ -44,14 +49,16 @@ function start(elements, chosenElPlace, remainElPlace) {
 	let signs = elements;
 	const chosenSign = randomize(elements);
 	changeOnScreen(chosenSign, chosenElPlace);
+//Assign the sign to Player1 object 
 	Player1.sign = chosenSign;
-//print gameSign that is left for player 2
-	let otherSign = 
-	changeOnScreen(removeElement(chosenSign, signs), remainElPlace);
-	Player2.sign = otherSign
+	Player1.yourTurn = true;
+console.log(Player1.yourTurn);
+//print gameSign that is left for player 2.
+	let otherSign = removeElement(chosenSign, signs);
+	changeOnScreen(otherSign, remainElPlace);
+//Assign the sign to Player2 object 	
+	Player2.sign = otherSign[0];
 }
-
-
 
 //make each cell to an object  
 class Cell {
@@ -68,7 +75,6 @@ class Cell {
     	console.log("this method will change the color of cell whenever win");
     }
 }
-
 		let a1 = new Cell(" ", true, "grey", false);
 		let a2 = new Cell(" ", true, "grey", false);
 		let a3 = new Cell(" ", true, "grey", false);
@@ -79,9 +85,16 @@ class Cell {
 		let c2 = new Cell(" ", true, "grey", false);
 		let c3 = new Cell(" ", true, "grey", false);
 
+//Function that will take an elemenet and print it on the chosen element of a page if empty
+function buttonClicked(what, where){
+	if(checkIfEmpty(object) === true){
+		changeOnScreen(what, where);
 
-
-
+}
+//working on printing sign of a player 1 on a chosen button. button clicked should 
+//go as a onclick on every button. Unless there is a way we can have it in object
+//after the click buttonClicked starts and check if a value of object is empty
+//but how to connect cell Id with this object? 
 
 
 	
