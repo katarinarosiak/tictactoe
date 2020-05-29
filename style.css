@@ -1,0 +1,55 @@
+body {
+  font-family: sans-serif;
+  padding: 0;
+}
+h1 {
+  font-family: Helvetica, sans-serif;
+  font-size: 3em;
+}
+h2 {
+  font-size: 1em;
+}
+
+.header {
+  display: grid;
+  grid-template: 2fr 1fr 2fr /1fr 1fr 1fr;
+  background-color: #2196f3;
+}
+#tictactoe {
+  grid-column: 1 / span 3;
+  text-align: center;
+  border: 2px solid black;
+}
+#buttons {
+  grid-column: 1 / span 3;
+  padding: 20px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.playerBoard1 {
+  text-align: center;
+  line-height: 0.5;
+}
+.roundBoard {
+  text-align: center;
+}
+.playerBoard2 {
+  text-align: center;
+  line-height: 0.8;
+}
+
+.board {
+  display: grid;
+  grid-template: 1fr 1fr 1fr /1fr 1fr 1fr;
+  border: 1px solid black;
+  width: 400px;
+}
+
+.board div {
+  border: 1px solid black;
+}
+.board button  {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0;
+}
