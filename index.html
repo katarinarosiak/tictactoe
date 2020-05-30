@@ -16,14 +16,14 @@
 			<input type="button" value="Restet Game"></input>
 		</div>
 		<div class="playerBoard1">
-			<h2>Player 1</h2> 
+			<h2 id="player1name">Player 1</h2> 
 			<button id="player1Button">Hello</button>
 			<h2>Score</h2>
 			<h2 id="player1score">0</h2>
 		</div>
 		<div class="roundBoard">
 			<h2>Round</h2>
-			<h2 id="round">1</h2>
+			<h2 id="roundId">1</h2>
 		</div>
 		<div class="playerBoard2">
 				<h2>Player 2</h2> 
@@ -33,15 +33,15 @@
 		</div>
 </div>
 <div class="board">
-	<div><button id="a1">a1</button></div>
-	<div><button id="a2">a2</button></div>
-	<div><button id="a3">a3</button></div>
-	<div><button id="b1">b1</button></div>
-	<div><button id="b2">b2</button></div>
-	<div><button id="b3">b3</button></div>
-	<div><button id="c1">c1</button></div>
-	<div><button id="c2">c2</button></div>
-	<div><button id="c3">c3</button></div>
+	<div><button id="a1" onclick="buttonClicked(currentPlayer, 'a1', a1)">a1</button></div>
+	<div><button id="a2" onclick="buttonClicked(currentPlayer, 'a2', a2)">a2</button></div>
+	<div><button id="a3" onclick="buttonClicked(currentPlayer, 'a3', a3)">a3</button></div>
+	<div><button id="b1" onclick="buttonClicked(currentPlayer, 'b1', b1)">b1</button></div>
+	<div><button id="b2" onclick="buttonClicked(currentPlayer, 'b2', b2)">b2</button></div>
+	<div><button id="b3" onclick="buttonClicked(currentPlayer, 'b3', b3)">b3</button></div>
+	<div><button id="c1" onclick="buttonClicked(currentPlayer, 'c1', c1)">c1</button></div>
+	<div><button id="c2" onclick="buttonClicked(currentPlayer, 'c2', c2)">c2</button></div>
+	<div><button id="c3" onclick="buttonClicked(currentPlayer, 'c3', c3)">c3</button></div>
 </div>
 	<div class="board">
 	</div>
