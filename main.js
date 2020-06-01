@@ -1,132 +1,8 @@
 
 
-//functions:
-//function that will randomly choose an element
- function randomize(elements) {
-    let randomSign = Math.floor(Math.random() * elements.length);
-    return elements[randomSign];
-  }
- //Function that change text on screen of specific elements 
- function changeOnScreen(what, where) {
-	return document.getElementById(where).innerHTML = what; 
-};
-//Function that removes chosen element from an array
-function removeElement(toRemove, fromWhere) {
-	let arrAfterRemoved = fromWhere;
-	let tempArr = arrAfterRemoved.splice(arrAfterRemoved.indexOf(toRemove), 1);
-	return arrAfterRemoved;
-}
-//Function that checks if the value of an object is empty
-function checkIfEmpty(obj){
-	if(obj.value === " "){
-		return true
-	}else{
-		return false
-		}
-	};
+//--//--//--//--//--//--//--//--Objects and variables //--//--//--//--//--//--//--//--
 
-function changePlayer(player){
-	if(player.name === "Player 1"){
-		currentPlayer = Player2;
-		Player2.yourTurn = true;
-		Player1.youtTurn = false; 
-	}else{
-		currentPlayer = Player1;
-		Player1.yourTurn = true;
-		Player2.yourTurn = false; 
-	}
-}
-
- function checkIfWin(){
- 	if(a1.value + a2.value + a3.value === "XXX" || a1.value + a2.value + a3.value === "OOO"){
- 		return true;
- 	}else if(b1.value + b2.value + b3.value === "XXX" || b1.value + b2.value + b3.value === "OOO"){
- 		return true;
- 	}else if(c1.value + c2.value + c3.value === "XXX" || c1.value + c2.value + c3.value === "OOO"){
- 		return true;
- 	}else if(a1.value + b1.value + c1.value === "XXX" || a1.value + b1.value + c1.value === "OOO"){
- 		return true;
- 	}else if(a2.value + b2.value + c2.value === "XXX" || a2.value + b2.value + c2.value === "OOO"){
- 		return true;
- 	}else if(a3.value + b3.value + c3.value === "XXX" || a3.value + b3.value + c3.value === "OOO"){
- 		return true;
- 	}else if(b1.value + b2.value + b3.value === "XXX" || b1.value + b2.value + b3.value === "OOO"){
- 		return true;
- 	}else if(a1.value + b2.value + c3.value === "XXX" || a1.value + b2.value + c3.value === "OOO"){
- 		return true;
- 	}else if(a3.value + b2.value + c1.value === "XXX" || a3.value + b2.value + c1.value === "OOO"){
- 		return true;
- 	}else{
- 		return false;
- 	}
- }
-
-
- function addPoints(player, currentPoint){
- 	console.log(player);
- 	console.log(currentPoint);
- 	currentPoint = currentPoint +1;
- 	console.log(currentPoint);
- 	return currentPoint;
- }
- 					
- function checkIfDraw(){
- 	let allCells;
- 	allCells = a1.value + a2.value + a3.value + b1.value + b2.value + b3.value + c1.value + c2.value + c3.value;
- 	return allCells.includes(" ");
- }
-
- function playAgainDraw(){
- 	round++;
-	changeOnScreen(round ,"roundId");
-	clearTheBoard();
- }
-
- function clearTheBoard() {
- 	a1.value = " ";
- 	a1.empty = true;
- 	changeOnScreen(" ", "a1");
- 	a2.value = " ";
- 	a2.empty = true;
- 	changeOnScreen(" ", "a2");
- 	a3.value = " ";
- 	a3.empty = true;
- 	changeOnScreen(" ", "a3");
- 	b1.value = " ";
- 	b1.empty = true;
- 	changeOnScreen(" ", "b1");
- 	b2.value = " ";
- 	b2.empty = true;
- 	changeOnScreen(" ", "b2");
- 	b3.value = " ";
- 	b3.empty = true;
- 	changeOnScreen(" ", "b3");
- 	c1.value = " ";
- 	c1.empty = true;
- 	changeOnScreen(" ", "c1");
- 	c2.value = " ";
- 	c2.empty = true;
- 	changeOnScreen(" ", "c2");
- 	c3.value = " ";
- 	c3.empty = true;
- 	changeOnScreen(" ", "c3");
- }
-
- function resetGame(){
- 	clearTheBoard();
- 	//clear rounds
- 	changeOnScreen(1, "roundId");
- 	round = 1;
- 	//clear score
- 	Player1.score = 0;
- 	Player2.score = 0;
- 	changeOnScreen(0, "player1score");
- 	changeOnScreen(0, "player2score");
-
- }
-
-//--//--//--//--//--//--//--//--//--//--//--//--///--//--//--//--//--//--//--//--//--//--//--//--/
-//create User objects
+//create objects for Player 1 and PLayer2
 class User {
 	constructor(name, sign, score, yourTurn, elementId) {
 		this.name = name;
@@ -139,10 +15,13 @@ class User {
 	let Player1 = new User("Player 1", " ", 0, true, "player1score");
 	let Player2 = new User("Player 2", " ", 0, false, "player2score");
 
-
-let currentPlayer = Player1;
+//variables
+let currentPlayer = Player1;  
 let gameSigns = ["X", "O"];
 let round = 1; 
+
+
+//--//--//--//--//--//--//--//--STarting the game //--//--//--//--//--//--//--//--
 
 //function that reactivates by clicking "start" button.  
 //Choose which sign will player 1 have and give remaining to Player 2
@@ -201,9 +80,6 @@ function buttonClicked(player, where, obj){
 			//if there is a win print congratulation and add scores
 			let respond = confirm("Congratulation you have won! Do you want to play again?");
 				if (respond == true) {
-  				
-// !!!!!!!!!!!!!!!!! let current score is only one player?? what the fack??
- 
   				player.score = player.score +1;
   				let currentScore = player.score;
   				console.log(currentScore);
@@ -228,7 +104,134 @@ function buttonClicked(player, where, obj){
 
 	}
 }
-//activate reste game button
+
+
+
+//functions:
+//function that will randomly choose an element
+ function randomize(elements) {
+    let randomSign = Math.floor(Math.random() * elements.length);
+    return elements[randomSign];
+  }
+ //Function that change text on screen of specific elements 
+ function changeOnScreen(what, where) {
+	return document.getElementById(where).innerHTML = what; 
+};
+//Function that removes chosen element from an array
+function removeElement(toRemove, fromWhere) {
+	let arrAfterRemoved = fromWhere;
+	let tempArr = arrAfterRemoved.splice(arrAfterRemoved.indexOf(toRemove), 1);
+	return arrAfterRemoved;
+}
+//Function that checks if the value of an object is empty
+function checkIfEmpty(obj){
+	if(obj.value === " "){
+		return true
+	}else{
+		return false
+		}
+	};
+//function that will change turn of a player
+function changePlayer(player){
+	if(player.name === "Player 1"){
+		currentPlayer = Player2;
+		Player2.yourTurn = true;
+		Player1.youtTurn = false; 
+	}else{
+		currentPlayer = Player1;
+		Player1.yourTurn = true;
+		Player2.yourTurn = false; 
+	}
+}
+//checking if there is a win
+ function checkIfWin(){
+ 	if(a1.value + a2.value + a3.value === "XXX" || a1.value + a2.value + a3.value === "OOO"){
+ 		return true;
+ 	}else if(b1.value + b2.value + b3.value === "XXX" || b1.value + b2.value + b3.value === "OOO"){
+ 		return true;
+ 	}else if(c1.value + c2.value + c3.value === "XXX" || c1.value + c2.value + c3.value === "OOO"){
+ 		return true;
+ 	}else if(a1.value + b1.value + c1.value === "XXX" || a1.value + b1.value + c1.value === "OOO"){
+ 		return true;
+ 	}else if(a2.value + b2.value + c2.value === "XXX" || a2.value + b2.value + c2.value === "OOO"){
+ 		return true;
+ 	}else if(a3.value + b3.value + c3.value === "XXX" || a3.value + b3.value + c3.value === "OOO"){
+ 		return true;
+ 	}else if(b1.value + b2.value + b3.value === "XXX" || b1.value + b2.value + b3.value === "OOO"){
+ 		return true;
+ 	}else if(a1.value + b2.value + c3.value === "XXX" || a1.value + b2.value + c3.value === "OOO"){
+ 		return true;
+ 	}else if(a3.value + b2.value + c1.value === "XXX" || a3.value + b2.value + c1.value === "OOO"){
+ 		return true;
+ 	}else{
+ 		return false;
+ 	}
+ }
+
+//adding points
+ function addPoints(player, currentPoint){
+ 	console.log(player);
+ 	console.log(currentPoint);
+ 	currentPoint = currentPoint +1;
+ 	console.log(currentPoint);
+ 	return currentPoint;
+ }
+ //checking if there is a draw					
+ function checkIfDraw(){
+ 	let allCells;
+ 	allCells = a1.value + a2.value + a3.value + b1.value + b2.value + b3.value + c1.value + c2.value + c3.value;
+ 	return allCells.includes(" ");
+ }
+//another round played after a draw with clearing the board and chengning round
+ function playAgainDraw(){
+ 	round++;
+	changeOnScreen(round ,"roundId");
+	clearTheBoard();
+ }
+//clearing the board
+ function clearTheBoard() {
+ 	a1.value = " ";
+ 	a1.empty = true;
+ 	changeOnScreen(" ", "a1");
+ 	a2.value = " ";
+ 	a2.empty = true;
+ 	changeOnScreen(" ", "a2");
+ 	a3.value = " ";
+ 	a3.empty = true;
+ 	changeOnScreen(" ", "a3");
+ 	b1.value = " ";
+ 	b1.empty = true;
+ 	changeOnScreen(" ", "b1");
+ 	b2.value = " ";
+ 	b2.empty = true;
+ 	changeOnScreen(" ", "b2");
+ 	b3.value = " ";
+ 	b3.empty = true;
+ 	changeOnScreen(" ", "b3");
+ 	c1.value = " ";
+ 	c1.empty = true;
+ 	changeOnScreen(" ", "c1");
+ 	c2.value = " ";
+ 	c2.empty = true;
+ 	changeOnScreen(" ", "c2");
+ 	c3.value = " ";
+ 	c3.empty = true;
+ 	changeOnScreen(" ", "c3");
+ }
+//reseting the game
+ function resetGame(){
+ 	clearTheBoard();
+ 	//clear rounds
+ 	changeOnScreen(1, "roundId");
+ 	round = 1;
+ 	//clear score
+ 	Player1.score = 0;
+ 	Player2.score = 0;
+ 	changeOnScreen(0, "player1score");
+ 	changeOnScreen(0, "player2score");
+
+ }
+
 
 
 
