@@ -1,24 +1,29 @@
 body {
-  font-family: sans-serif;
+  font-family: Gadugi;
   padding: 0;
-}
+  }    
+
 h1 {
-  font-family: Helvetica, sans-serif;
-  font-size: 3em;
+  font-family: Tw Cen MT Condensed Extra Bold, sans-serif;
+  font-size: 2.3em;
+  color: #E9E9EC;
 }
 h2 {
   font-size: 1em;
+  color: #E9E9EC;
 }
 
 .header {
   display: grid;
   grid-template: 2fr 1fr 2fr /1fr 1fr 1fr;
-  background-color: #2196f3;
+  background-color: rgba(47, 45, 61);
+  height: 43vh;
+
 }
 #tictactoe {
   grid-column: 1 / span 3;
   text-align: center;
-  border: 2px solid black;
+  border: 0.5px solid rgba(108, 102, 140);
 }
 #buttons {
   grid-column: 1 / span 3;
@@ -29,27 +34,59 @@ h2 {
 .playerBoard1 {
   text-align: center;
   line-height: 0.5;
+
 }
 .roundBoard {
   text-align: center;
 }
 .playerBoard2 {
   text-align: center;
-  line-height: 0.8;
+  line-height: 0.5;
 }
 
 .board {
   display: grid;
-  grid-template: 1fr 1fr 1fr /1fr 1fr 1fr;
-  border: 1px solid black;
-  width: 400px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  background-color: rgba(47, 45, 61);
+  padding-bottom: 15px;
+
 }
 
-.board div {
+.column2 {
+  display: grid;
+  grid-template: 1fr 1fr 1fr /1fr 1fr 1fr;
+  border: 1px solid black;
+  width: 300px;
+  height: 300px;
+  background-color: blue;
+}
+
+.column2 div {
   border: 1px solid black;
 }
-.board button  {
+.column2 button  {
   font-size: 2.5rem;
   text-align: center;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
+
+#player1Button {
+  width: 30px;
+  height: 30px;
+  font-size: 100%
+}
+
+#player2Button {
+  width: 30px;
+  height: 30px;
+  font-size: 100%
+}
+
+button {
+  background-color: rgba(108, 102, 140);
+}
+
